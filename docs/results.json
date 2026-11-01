@@ -1,0 +1,499 @@
+{
+  "fleet": "analytics-platform",
+  "capacity": {
+    "vcpu": {
+      "demand": 172,
+      "capacity": 440.0,
+      "fraction": 0.39090909090909093
+    },
+    "memory_gb": {
+      "demand": 1040.0,
+      "capacity": 2176.0,
+      "fraction": 0.47794117647058826
+    },
+    "gpus": {
+      "demand": 12,
+      "capacity": 12.0,
+      "fraction": 1.0
+    },
+    "public_ips": {
+      "demand": 36,
+      "capacity": 112.0,
+      "fraction": 0.32142857142857145
+    }
+  },
+  "blockers": [],
+  "plans": {
+    "cheapest": {
+      "strategy": "cheapest-first",
+      "placed_units": 36,
+      "requested_units": 36,
+      "complete": true,
+      "unplaced": [],
+      "hourly_cost": 13.8348,
+      "monthly_cost": 10099.4,
+      "utilisation": {
+        "vcpu": 0.3729,
+        "memory_gb": 0.4141,
+        "gpus": 1.0,
+        "public_ips": 0.3375
+      },
+      "binding_quotas": [
+        {
+          "region": "eu-north",
+          "quota": "public_ips",
+          "fraction": 1.0
+        },
+        {
+          "region": "eu-west",
+          "quota": "gpus",
+          "fraction": 1.0
+        },
+        {
+          "region": "us-east",
+          "quota": "gpus",
+          "fraction": 1.0
+        }
+      ],
+      "regions": {
+        "eu-north": {
+          "units": 24,
+          "used": {
+            "vcpu": 68.0,
+            "memory_gb": 272.0,
+            "gpus": 0.0,
+            "public_ips": 24.0
+          },
+          "capacity": {
+            "vcpu": 96.0,
+            "memory_gb": 512.0,
+            "gpus": 0.0,
+            "public_ips": 24.0
+          }
+        },
+        "eu-west": {
+          "units": 4,
+          "used": {
+            "vcpu": 40.0,
+            "memory_gb": 288.0,
+            "gpus": 8.0,
+            "public_ips": 4.0
+          },
+          "capacity": {
+            "vcpu": 160.0,
+            "memory_gb": 768.0,
+            "gpus": 8.0,
+            "public_ips": 40.0
+          }
+        },
+        "us-east": {
+          "units": 8,
+          "used": {
+            "vcpu": 64.0,
+            "memory_gb": 480.0,
+            "gpus": 4.0,
+            "public_ips": 8.0
+          },
+          "capacity": {
+            "vcpu": 120.0,
+            "memory_gb": 640.0,
+            "gpus": 4.0,
+            "public_ips": 32.0
+          }
+        },
+        "ap-south": {
+          "units": 0,
+          "used": {
+            "vcpu": 0.0,
+            "memory_gb": 0.0,
+            "gpus": 0.0,
+            "public_ips": 0.0
+          },
+          "capacity": {
+            "vcpu": 64.0,
+            "memory_gb": 256.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        }
+      }
+    },
+    "spread": {
+      "strategy": "spread-evenly",
+      "placed_units": 36,
+      "requested_units": 36,
+      "complete": true,
+      "unplaced": [],
+      "hourly_cost": 14.322,
+      "monthly_cost": 10455.06,
+      "utilisation": {
+        "vcpu": 0.3901,
+        "memory_gb": 0.4786,
+        "gpus": 1.0,
+        "public_ips": 0.3422
+      },
+      "binding_quotas": [
+        {
+          "region": "eu-west",
+          "quota": "gpus",
+          "fraction": 1.0
+        },
+        {
+          "region": "us-east",
+          "quota": "gpus",
+          "fraction": 1.0
+        }
+      ],
+      "regions": {
+        "eu-north": {
+          "units": 9,
+          "used": {
+            "vcpu": 36.0,
+            "memory_gb": 208.0,
+            "gpus": 0.0,
+            "public_ips": 9.0
+          },
+          "capacity": {
+            "vcpu": 96.0,
+            "memory_gb": 512.0,
+            "gpus": 0.0,
+            "public_ips": 24.0
+          }
+        },
+        "eu-west": {
+          "units": 11,
+          "used": {
+            "vcpu": 66.0,
+            "memory_gb": 424.0,
+            "gpus": 8.0,
+            "public_ips": 11.0
+          },
+          "capacity": {
+            "vcpu": 160.0,
+            "memory_gb": 768.0,
+            "gpus": 8.0,
+            "public_ips": 40.0
+          }
+        },
+        "us-east": {
+          "units": 9,
+          "used": {
+            "vcpu": 44.0,
+            "memory_gb": 272.0,
+            "gpus": 4.0,
+            "public_ips": 9.0
+          },
+          "capacity": {
+            "vcpu": 120.0,
+            "memory_gb": 640.0,
+            "gpus": 4.0,
+            "public_ips": 32.0
+          }
+        },
+        "ap-south": {
+          "units": 7,
+          "used": {
+            "vcpu": 26.0,
+            "memory_gb": 136.0,
+            "gpus": 0.0,
+            "public_ips": 7.0
+          },
+          "capacity": {
+            "vcpu": 64.0,
+            "memory_gb": 256.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        }
+      }
+    },
+    "balanced": {
+      "strategy": "balanced (bulk)",
+      "placed_units": 36,
+      "requested_units": 36,
+      "complete": true,
+      "unplaced": [],
+      "hourly_cost": 13.7223,
+      "monthly_cost": 10017.28,
+      "utilisation": {
+        "vcpu": 0.3833,
+        "memory_gb": 0.4375,
+        "gpus": 1.0,
+        "public_ips": 0.3193
+      },
+      "binding_quotas": [
+        {
+          "region": "eu-north",
+          "quota": "memory_gb",
+          "fraction": 1.0
+        },
+        {
+          "region": "eu-west",
+          "quota": "gpus",
+          "fraction": 1.0
+        },
+        {
+          "region": "us-east",
+          "quota": "gpus",
+          "fraction": 1.0
+        }
+      ],
+      "regions": {
+        "eu-north": {
+          "units": 17,
+          "used": {
+            "vcpu": 88.0,
+            "memory_gb": 512.0,
+            "gpus": 0.0,
+            "public_ips": 17.0
+          },
+          "capacity": {
+            "vcpu": 96.0,
+            "memory_gb": 512.0,
+            "gpus": 0.0,
+            "public_ips": 24.0
+          }
+        },
+        "eu-west": {
+          "units": 4,
+          "used": {
+            "vcpu": 40.0,
+            "memory_gb": 288.0,
+            "gpus": 8.0,
+            "public_ips": 4.0
+          },
+          "capacity": {
+            "vcpu": 160.0,
+            "memory_gb": 768.0,
+            "gpus": 8.0,
+            "public_ips": 40.0
+          }
+        },
+        "us-east": {
+          "units": 15,
+          "used": {
+            "vcpu": 44.0,
+            "memory_gb": 240.0,
+            "gpus": 4.0,
+            "public_ips": 15.0
+          },
+          "capacity": {
+            "vcpu": 120.0,
+            "memory_gb": 640.0,
+            "gpus": 4.0,
+            "public_ips": 32.0
+          }
+        },
+        "ap-south": {
+          "units": 0,
+          "used": {
+            "vcpu": 0.0,
+            "memory_gb": 0.0,
+            "gpus": 0.0,
+            "public_ips": 0.0
+          },
+          "capacity": {
+            "vcpu": 64.0,
+            "memory_gb": 256.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        }
+      }
+    }
+  },
+  "tight": {
+    "cheapest": {
+      "strategy": "cheapest-first",
+      "placed_units": 10,
+      "requested_units": 12,
+      "complete": false,
+      "unplaced": [
+        {
+          "workload": "app",
+          "count": 2
+        }
+      ],
+      "hourly_cost": 0.68,
+      "monthly_cost": 496.4,
+      "utilisation": {
+        "vcpu": 0.75,
+        "memory_gb": 0.625,
+        "gpus": 0.0,
+        "public_ips": 0.3125
+      },
+      "binding_quotas": [
+        {
+          "region": "cheap",
+          "quota": "vcpu",
+          "fraction": 1.0
+        },
+        {
+          "region": "dear",
+          "quota": "memory_gb",
+          "fraction": 1.0
+        }
+      ],
+      "regions": {
+        "cheap": {
+          "units": 8,
+          "used": {
+            "vcpu": 16.0,
+            "memory_gb": 32.0,
+            "gpus": 0.0,
+            "public_ips": 8.0
+          },
+          "capacity": {
+            "vcpu": 16.0,
+            "memory_gb": 128.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        },
+        "dear": {
+          "units": 2,
+          "used": {
+            "vcpu": 8.0,
+            "memory_gb": 64.0,
+            "gpus": 0.0,
+            "public_ips": 2.0
+          },
+          "capacity": {
+            "vcpu": 16.0,
+            "memory_gb": 64.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        }
+      }
+    },
+    "spread": {
+      "strategy": "spread-evenly",
+      "placed_units": 8,
+      "requested_units": 12,
+      "complete": false,
+      "unplaced": [
+        {
+          "workload": "web",
+          "count": 4
+        }
+      ],
+      "hourly_cost": 0.68,
+      "monthly_cost": 496.4,
+      "utilisation": {
+        "vcpu": 0.75,
+        "memory_gb": 0.8125,
+        "gpus": 0.0,
+        "public_ips": 0.25
+      },
+      "binding_quotas": [
+        {
+          "region": "cheap",
+          "quota": "vcpu",
+          "fraction": 1.0
+        },
+        {
+          "region": "dear",
+          "quota": "memory_gb",
+          "fraction": 1.0
+        }
+      ],
+      "regions": {
+        "cheap": {
+          "units": 6,
+          "used": {
+            "vcpu": 16.0,
+            "memory_gb": 80.0,
+            "gpus": 0.0,
+            "public_ips": 6.0
+          },
+          "capacity": {
+            "vcpu": 16.0,
+            "memory_gb": 128.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        },
+        "dear": {
+          "units": 2,
+          "used": {
+            "vcpu": 8.0,
+            "memory_gb": 64.0,
+            "gpus": 0.0,
+            "public_ips": 2.0
+          },
+          "capacity": {
+            "vcpu": 16.0,
+            "memory_gb": 64.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        }
+      }
+    },
+    "balanced": {
+      "strategy": "balanced (bulk)",
+      "placed_units": 12,
+      "requested_units": 12,
+      "complete": true,
+      "unplaced": [],
+      "hourly_cost": 1.02,
+      "monthly_cost": 744.6,
+      "utilisation": {
+        "vcpu": 1.0,
+        "memory_gb": 0.75,
+        "gpus": 0.0,
+        "public_ips": 0.375
+      },
+      "binding_quotas": [
+        {
+          "region": "cheap",
+          "quota": "memory_gb",
+          "fraction": 1.0
+        },
+        {
+          "region": "cheap",
+          "quota": "vcpu",
+          "fraction": 1.0
+        },
+        {
+          "region": "dear",
+          "quota": "vcpu",
+          "fraction": 1.0
+        }
+      ],
+      "regions": {
+        "cheap": {
+          "units": 4,
+          "used": {
+            "vcpu": 16.0,
+            "memory_gb": 128.0,
+            "gpus": 0.0,
+            "public_ips": 4.0
+          },
+          "capacity": {
+            "vcpu": 16.0,
+            "memory_gb": 128.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        },
+        "dear": {
+          "units": 8,
+          "used": {
+            "vcpu": 16.0,
+            "memory_gb": 32.0,
+            "gpus": 0.0,
+            "public_ips": 8.0
+          },
+          "capacity": {
+            "vcpu": 16.0,
+            "memory_gb": 64.0,
+            "gpus": 0.0,
+            "public_ips": 16.0
+          }
+        }
+      }
+    }
+  }
+}

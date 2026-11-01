@@ -1,0 +1,41 @@
+{
+  "name": "analytics-platform",
+  "hours_per_month": 730,
+  "machine_types": [
+    { "name": "web-small",  "vcpu": 2,  "memory_gb": 8,   "gpus": 0, "hourly_usd": 0.085 },
+    { "name": "app-medium", "vcpu": 4,  "memory_gb": 16,  "gpus": 0, "hourly_usd": 0.17 },
+    { "name": "db-large",   "vcpu": 8,  "memory_gb": 64,  "gpus": 0, "hourly_usd": 0.42 },
+    { "name": "gpu-train",  "vcpu": 16, "memory_gb": 128, "gpus": 4, "hourly_usd": 3.06 }
+  ],
+  "regions": [
+    {
+      "name": "eu-north",
+      "price_index": 0.82,
+      "quotas": { "vcpu": 96, "memory_gb": 512, "gpus": 0, "public_ips": 24 },
+      "allowed_for": ["web", "app", "db"]
+    },
+    {
+      "name": "eu-west",
+      "price_index": 1.0,
+      "quotas": { "vcpu": 160, "memory_gb": 768, "gpus": 8, "public_ips": 40 }
+    },
+    {
+      "name": "us-east",
+      "price_index": 0.91,
+      "quotas": { "vcpu": 120, "memory_gb": 640, "gpus": 4, "public_ips": 32 }
+    },
+    {
+      "name": "ap-south",
+      "price_index": 1.14,
+      "quotas": { "vcpu": 64, "memory_gb": 256, "gpus": 0, "public_ips": 16 }
+    }
+  ],
+  "workloads": [
+    { "name": "web", "machine": "web-small", "count": 14, "note": "stateless front ends" },
+    { "name": "app", "machine": "app-medium", "count": 12, "note": "API workers" },
+    { "name": "db", "machine": "db-large", "count": 5, "note": "primary + replicas" },
+    { "name": "gpu", "machine": "gpu-train", "count": 3, "note": "nightly training" },
+    { "name": "residency", "machine": "app-medium", "count": 2, "pinned_region": "eu-west",
+      "note": "data residency requires eu-west" }
+  ]
+}

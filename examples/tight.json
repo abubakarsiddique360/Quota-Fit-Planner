@@ -1,0 +1,25 @@
+{
+  "name": "tight-quarters",
+  "hours_per_month": 730,
+  "machine_types": [
+    { "name": "web-small", "vcpu": 2, "memory_gb": 4,  "gpus": 0, "hourly_usd": 0.085 },
+    { "name": "app-large", "vcpu": 4, "memory_gb": 32, "gpus": 0, "hourly_usd": 0.17 }
+  ],
+  "regions": [
+    {
+      "name": "cheap",
+      "price_index": 0.5,
+      "quotas": { "vcpu": 16, "memory_gb": 128, "gpus": 0, "public_ips": 16 },
+      "allowed_for": ["web", "app"]
+    },
+    {
+      "name": "dear",
+      "price_index": 1.0,
+      "quotas": { "vcpu": 16, "memory_gb": 64, "gpus": 0, "public_ips": 16 }
+    }
+  ],
+  "workloads": [
+    { "name": "web", "machine": "web-small", "count": 8, "note": "eight small front ends" },
+    { "name": "app", "machine": "app-large", "count": 4, "note": "four memory-hungry workers" }
+  ]
+}

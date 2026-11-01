@@ -1,0 +1,27 @@
+{
+  "name": "squeeze",
+  "hours_per_month": 730,
+  "machine_types": [
+    { "name": "web-small", "vcpu": 2, "memory_gb": 8,  "gpus": 0, "hourly_usd": 0.085 },
+    { "name": "db-large",  "vcpu": 8, "memory_gb": 64, "gpus": 0, "hourly_usd": 0.42 },
+    { "name": "gpu-train", "vcpu": 8, "memory_gb": 32, "gpus": 2, "hourly_usd": 1.53 }
+  ],
+  "regions": [
+    {
+      "name": "cheap",
+      "price_index": 0.5,
+      "quotas": { "vcpu": 20, "memory_gb": 80, "gpus": 0, "public_ips": 10 },
+      "allowed_for": ["web", "db"]
+    },
+    {
+      "name": "dear",
+      "price_index": 1.0,
+      "quotas": { "vcpu": 20, "memory_gb": 80, "gpus": 8, "public_ips": 10 }
+    }
+  ],
+  "workloads": [
+    { "name": "web", "machine": "web-small", "count": 10, "note": "ten small front ends" },
+    { "name": "db", "machine": "db-large", "count": 1, "note": "one memory-hungry primary" },
+    { "name": "gpu", "machine": "gpu-train", "count": 1, "note": "one trainer, needs GPUs" }
+  ]
+}

@@ -22,6 +22,7 @@ example fleets.
 - [Three strategies, measured](#three-strategies-measured)
 - [Where the fleet actually landed](#where-the-fleet-actually-landed)
 - [The tight case where greedy fails](#the-tight-case-where-greedy-fails)
+- [The case no strategy can save](#the-case-no-strategy-can-save)
 - [Install and run](#install-and-run)
 - [Commands](#commands)
 - [Fleet file format](#fleet-file-format)
@@ -162,6 +163,38 @@ cheap region's 128 GB of memory (16 vCPU exactly), and the eight web units fit t
 The stranded greedy plan looks *cheaper* ($0.68/hour) and is worthless, because it delivers 10 of
 the 12 machines that were asked for. That is why `plan` exits non-zero when anything is unplaced:
 an incomplete plan is not a cheaper plan, it is a failed one.
+
+## The case no strategy can save
+
+`examples/squeeze.json` is the same idea taken one step further: two regions, 40 vCPU and 160 GB
+between them, and a fleet that needs 36 vCPU but **176 GB**. The memory demand is 110% of what
+exists, so the question is not which strategy is cleverest - it is whether the fleet is placeable at
+all, and the tool answers that separately:
+
+```console
+$ quota-fit capacity --fleet examples/squeeze.json
+quota           demand   capacity    used  verdict
+vcpu                36         40     90%  tight
+memory_gb          176        160    110%  SHORT
+gpus                 2          8     25%  surplus
+public_ips          12         20     60%  surplus
+
+a quota above 100% cannot be placed by any strategy - it needs a quota increase
+```
+
+All three strategies then agree, and all three are incomplete:
+
+| Strategy | Units placed | $/hour | What is left over |
+| --- | ---: | ---: | --- |
+| cheapest-first | **11/12** | 0.84 | the GPU trainer |
+| spread-evenly | **10/12** | 2.33 | 2 web units |
+| balanced | **11/12** | 0.84 | the GPU trainer |
+
+This is the more common production failure of the two. `cheapest-first` and `balanced` actually place
+within capacity - they are defeated by the `allowed_for` restriction, not by the quota - while
+`spread-evenly` scatters web units into the region that only has room for a third of them. Reading
+the capacity table first turns an hour of strategy comparison into a one-line answer: buy more
+memory.
 
 ## Install and run
 
